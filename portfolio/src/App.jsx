@@ -1,11 +1,16 @@
 
 import './App.css';
 import Header from './components/Header';
+import AboutSection from './components/About';
+import SkillsCards from './components/Skills';
 
 function App() {
   return (
-    <Header />
-    
+    <div>
+      <Header />
+      <AboutSection />
+      <SkillsCards />
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
-
+import image from '../assets/IMG_1015.jpg'
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
@@ -8,6 +8,7 @@ const Header = () => {
     useEffect(() => {
         setIsVisible(true);
     }, []);
+    
 
     // Animation pour le texte qui apparaît caractère par caractère
     const text = "Développeur Full Stack";
@@ -87,8 +88,19 @@ const Header = () => {
                 {/* Menu mobile existant... */}
                 {mobileMenuOpen && (
                     <div className="lg:hidden">
-                        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                            {/* Contenu du menu mobile... */}
+                        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-indigo px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 flex flex-col space-y-4 h-full">
+                        {['Projets', 'À propos', 'Compétences', 'Contact'].map((item, index) => (
+                            <a 
+                                key={item} 
+                                href={`#${item.toLowerCase()}`}
+                                className={`text-sm mt-8 font-semibold text-gray-900 hover:text-indigo-600 
+                                          transition-all duration-300 hover:scale-110
+                                          ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
+                                style={{ transitionDelay: `${index * 100}ms` }}
+                            >
+                                {item}
+                            </a>
+                        ))}
                         </div>
                     </div>
                 )}
@@ -144,7 +156,7 @@ const Header = () => {
                                 {/* Photo */}
                                 <div className="absolute inset-4 rounded-full overflow-hidden">
                                     <img
-                                        src="/api/placeholder/400/400"
+                                        src={image}
                                         alt="Portrait"
                                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                                     />
