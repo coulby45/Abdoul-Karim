@@ -71,7 +71,7 @@ const Header = () => {
                     </div>
 
                     <div className="hidden lg:flex lg:gap-x-12">
-                        {['Projets', 'Formation', 'Compétences', 'Contact','CV','Hobbies'].map((item, index) => (
+                        {['Projets', 'Formation', 'Compétences', 'Contact','CV'].map((item, index) => (
                             <a 
                                 key={item} 
                                 href={`#${item.toLowerCase()}`}
@@ -120,7 +120,7 @@ const Header = () => {
                                 </button>
                             </div>
                             <div className="flex flex-col space-y-8">
-                                {['Projets', 'Formation', 'Compétences', 'Contact','CV','Hobbies'].map((item, index) => (
+                                {['Projets', 'Formation', 'Compétences', 'Contact','CV'].map((item, index) => (
                                     <a 
                                         key={item}
                                         href={`#${item.toLowerCase()}`}
@@ -169,12 +169,12 @@ const Header = () => {
                                 <span className="animate-pulse">|</span>
                             </h1>
                             <p className={`mt-6 text-lg leading-8 text-gray-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-1000 delay-500`}>
-                                Je crée des expériences web innovantes en combinant design créatif et développement robuste.
-                                Spécialisé en React, Node.js et architecture cloud.
+                            Étudiant en ingénierie informatique, passionné par le développement web, la data science et l’intelligence artificielle. 
+                            J’explore et conçois des solutions innovantes en combinant mes compétences techniques en React, node js et Python, tout en renforçant ma maîtrise des outils modernes de développement.
                             </p>
                             <div className={`mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-1000 delay-700`}>
                                 <a
-                                    href="#projects"
+                                    href="#projets"
                                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:scale-105 transition-all duration-300"
                                 >
                                     Voir mes projets

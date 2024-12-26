@@ -19,6 +19,7 @@ import pandas from '../assets/skills/pandas.png';
 import scikitlearnLogo from '../assets/skills/scikitlearn.png';
 import vscodeLogo from '../assets/skills/vscode.jpg';
 import jupyterLogo from '../assets/skills/jupyter.png';
+import mysqlLogo from '../assets/skills/mysql.png';
 
 
 const SkillsCards = () => {
@@ -31,7 +32,7 @@ const SkillsCards = () => {
             { threshold: 0.1 }
         );
 
-        const section = document.getElementById('skills-section');
+        const section = document.getElementById('compétences');
         if (section) observer.observe(section);
 
         return () => observer.disconnect();
@@ -60,7 +61,7 @@ const SkillsCards = () => {
                 {
                     title: "Base de données",
                     skills: [
-                        { name: "MySQL", image: "/api/placeholder/64/64" },
+                        { name: "MySQL", image: mysqlLogo },
                     ]
                 }
             ]
@@ -120,7 +121,7 @@ const SkillsCards = () => {
     ];
 
     return (
-        <section id='compétences' className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section id='compétences' className="py-24 bg-indigo-100 from-indigo-100 to-indigo-600">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Titre de la section avec animation */}
                 <div className={`text-center mb-16 transform transition-all duration-1000 ${

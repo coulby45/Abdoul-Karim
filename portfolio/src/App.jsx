@@ -4,9 +4,9 @@ import Header from './components/Header';
 import AboutSection from './components/About';
 import SkillsCards from './components/Skills';
 import PortfolioCarousel from './components/Projets';
-import Education from './components/formation';
+import Formation from './components/formation';
 import CVSection from './components/CVsection';
-import PassionsSection from './components/passions';
+/*import PassionsSection from './components/passions';*/
 import Footer from './components/footer';
 import ContactSection from './components/Contact';
 
@@ -16,10 +16,10 @@ function App() {
       <Header />
       <AboutSection />
       <SkillsCards />
-      <PortfolioCarousel/> 
-      <Education />
+      <PortfolioCarousel />
+      <Formation />
       <CVSection />
-      <PassionsSection />
+      {/*<PassionsSection />*/}
       <ContactSection />
       <Footer />
     </div>

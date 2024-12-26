@@ -35,7 +35,7 @@ const PortfolioCarousel = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -81,25 +81,21 @@ const PortfolioCarousel = () => {
   };
 
   return (
-    <div id='projets'
-      className={`relative w-full mt-7 md-7 max-w-6xl mx-auto overflow-hidden rounded-2xl shadow-xl 
-                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} 
-                  transition-all duration-1000`}
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
+    <section id='projets' 
+    className={`py-24 bg-indigo-100 from-indigo-100 to-indigo-600
+    ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} 
+              transition-all duration-1000`}
     >
-      {/* Arrière-plan animé */}
-      <div className="absolute inset-0 -z-10 overflow-hidden blur-xl">
-        <div
-          className="absolute w-full h-full bg-gradient-to-tr from-indigo-200 to-indigo-600 opacity-30 animate-pulse"
-          style={{
-            clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-          }}
-        />
-      </div>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='text-center mb-16'>
+          <h2 className='text-5xl font-bold text-gray-900 mb-4'>
+            Projets
+          </h2>
+          <div className='w-32 h-2 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full' />
+        </div>
 
-      {/* Carousel principal */}
-      <div className="relative h-[32rem] bg-gray-50/90">
+        {/* Carousel principal */}
+      <div className="relative h-[32rem] bg-blue-500">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
@@ -122,7 +118,7 @@ const PortfolioCarousel = () => {
                   alt={items[currentIndex].title}
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t " />
               </div>
 
               {/* Contenu du projet */}
@@ -186,7 +182,11 @@ const PortfolioCarousel = () => {
           />
         ))}
       </div>
-    </div>
+
+      </div>
+
+    </section>
+
   );
 };
 

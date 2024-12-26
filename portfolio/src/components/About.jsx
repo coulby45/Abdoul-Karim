@@ -12,7 +12,7 @@ const AboutSection = () => {
             { threshold: 0.1 }
         );
 
-        const aboutSection = document.getElementById('about-section');
+        const aboutSection = document.getElementById('a propos');
         if (aboutSection) {
             observer.observe(aboutSection);
         }
@@ -33,7 +33,7 @@ const AboutSection = () => {
     ];
 
     return (
-        <section id="about-section" className="bg-gray-50 py-24 relative overflow-hidden">
+        <section id="a propos" className="bg-gray-50 py-24 relative overflow-hidden">
             {/* Cercles décoratifs animés */}
             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-indigo-100 rounded-full blur-3xl animate-pulse opacity-70" />
             <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-200 rounded-full blur-3xl animate-pulse opacity-70" />
@@ -51,14 +51,13 @@ const AboutSection = () => {
                 }`}>
                     <div className="max-w-3xl mx-auto">
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                            Passionné par le développement web depuis plus de 5 ans, je combine créativité et expertise technique 
-                            pour donner vie à des projets innovants. Mon parcours m'a permis d'acquérir une solide expérience 
-                            en développement full-stack, avec une spécialisation particulière en React et Node.js.
+                        En tant qu’étudiant passionné par le développement web, la data science et l’intelligence artificielle, je combine créativité, compétences techniques et soif d'apprendre pour réaliser des projets innovants. Spécialisé en React et Node.js, je développe des applications web performantes tout en explorant les possibilités offertes par les données et l’IA.
+
+
                         </p>
                         <p className="text-lg text-gray-700 leading-relaxed">
-                            Au-delà du code, je suis un fervent défenseur des bonnes pratiques de développement et de l'importance
-                            de créer des expériences utilisateur exceptionnelles. Je cherche constamment à repousser mes limites
-                            et à apprendre de nouvelles technologies.
+                        Mon intérêt pour la data et l’IA m’amène à approfondir mes connaissances en analyse de données, machine learning et automatisation des processus. Je suis convaincu que ces technologies peuvent transformer des idées complexes en solutions intelligentes et accessibles. En constante quête d'amélioration, je cherche à repousser mes limites, à apprendre de nouvelles techniques et à intégrer ces avancées dans mes projets web pour créer des expériences utilisateurs exceptionnelles.
+
                         </p>
                     </div>
                 </div>
