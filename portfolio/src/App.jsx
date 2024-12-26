@@ -8,6 +8,7 @@ import Education from './components/formation';
 import CVSection from './components/CVsection';
 import PassionsSection from './components/passions';
 import Footer from './components/footer';
+import ContactSection from './components/Contact';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Education />
       <CVSection />
       <PassionsSection />
+      <ContactSection />
       <Footer />
     </div>
   );

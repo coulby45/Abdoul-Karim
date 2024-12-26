@@ -81,7 +81,7 @@ const PortfolioCarousel = () => {
   };
 
   return (
-    <div 
+    <div id='projets'
       className={`relative w-full mt-7 md-7 max-w-6xl mx-auto overflow-hidden rounded-2xl shadow-xl 
                   ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} 
                   transition-all duration-1000`}

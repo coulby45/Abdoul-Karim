@@ -33,7 +33,7 @@ const PassionsSection = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 py-20 px-4">
+    <section id='hobbies' className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-16 text-indigo-900">
           Mes Passions

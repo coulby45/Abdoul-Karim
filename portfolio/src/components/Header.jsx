@@ -71,7 +71,7 @@ const Header = () => {
                     </div>
 
                     <div className="hidden lg:flex lg:gap-x-12">
-                        {['Projets', 'À propos', 'Compétences', 'Contact'].map((item, index) => (
+                        {['Projets', 'Formation', 'Compétences', 'Contact','CV','Hobbies'].map((item, index) => (
                             <a 
                                 key={item} 
                                 href={`#${item.toLowerCase()}`}
@@ -120,9 +120,9 @@ const Header = () => {
                                 </button>
                             </div>
                             <div className="flex flex-col space-y-8">
-                                {['Projets', 'À propos', 'Compétences', 'Contact'].map((item, index) => (
+                                {['Projets', 'Formation', 'Compétences', 'Contact','CV','Hobbies'].map((item, index) => (
                                     <a 
-                                        key={item} 
+                                        key={item}
                                         href={`#${item.toLowerCase()}`}
                                         onClick={handleMobileMenuClick}
                                         className="text-lg font-semibold text-gray-900 hover:text-indigo-600 
