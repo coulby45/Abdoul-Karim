@@ -5,6 +5,10 @@ import AboutSection from './components/About';
 import SkillsCards from './components/Skills';
 import PortfolioCarousel from './components/Projets';
 import Education from './components/formation';
+import CVSection from './components/CVsection';
+import PassionsSection from './components/passions';
+import Footer from './components/footer';
+
 function App() {
   return (
     <div>
@@ -13,6 +17,9 @@ function App() {
       <SkillsCards />
       <PortfolioCarousel/> 
       <Education />
+      <CVSection />
+      <PassionsSection />
+      <Footer />
     </div>
   );
 }

@@ -27,6 +27,22 @@ const Header = () => {
         
         return () => clearInterval(timer);
     }, []);
+      // Fonction pour fermer le menu mobile
+      const handleMobileMenuClick = () => {
+        setMobileMenuOpen(false);
+    };
+
+    // Empêcher le scroll quand le menu mobile est ouvert
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [mobileMenuOpen]);
 
     return (
         <div className="bg-gray-50 min-h-screen">
@@ -35,7 +51,7 @@ const Header = () => {
                     {/* En-tête existant... */}
                     <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5">
-                            <span className="text-xl font-bold text-indigo-600 hover:scale-110 transition-transform duration-300">JP</span>
+                            <span className="text-xl font-bold text-indigo-600 hover:scale-110 transition-transform duration-300">Coulibaly Abdoul</span>
                         </a>
                     </div>
                     
@@ -87,20 +103,46 @@ const Header = () => {
 
                 {/* Menu mobile existant... */}
                 {mobileMenuOpen && (
-                    <div className="lg:hidden">
-                        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-indigo px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 flex flex-col space-y-4 h-full">
-                        {['Projets', 'À propos', 'Compétences', 'Contact'].map((item, index) => (
-                            <a 
-                                key={item} 
-                                href={`#${item.toLowerCase()}`}
-                                className={`text-sm mt-8 font-semibold text-gray-900 hover:text-indigo-600 
-                                          transition-all duration-300 hover:scale-110
-                                          ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
-                                style={{ transitionDelay: `${index * 100}ms` }}
-                            >
-                                {item}
-                            </a>
-                        ))}
+                    <div 
+                        className="fixed inset-0 z-50 lg:hidden bg-gray-900/50 backdrop-blur-sm"
+                        onClick={handleMobileMenuClick}
+                    >
+                        <div 
+                            className="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-xl p-6"
+                            onClick={e => e.stopPropagation()}
+                        >
+                            <div className="flex justify-end mb-8">
+                                <button
+                                    onClick={handleMobileMenuClick}
+                                    className="p-2 text-gray-600 hover:text-gray-900"
+                                >
+                                    <X className="h-6 w-6" />
+                                </button>
+                            </div>
+                            <div className="flex flex-col space-y-8">
+                                {['Projets', 'À propos', 'Compétences', 'Contact'].map((item, index) => (
+                                    <a 
+                                        key={item} 
+                                        href={`#${item.toLowerCase()}`}
+                                        onClick={handleMobileMenuClick}
+                                        className="text-lg font-semibold text-gray-900 hover:text-indigo-600 
+                                                transition-all duration-300 transform hover:translate-x-2"
+                                    >
+                                        {item}
+                                    </a>
+                                ))}
+                                <div className="flex gap-6 pt-4">
+                                    {[<Github />, <Linkedin />, <Mail />].map((icon, index) => (
+                                        <a 
+                                            key={index}
+                                            href="#"
+                                            className="text-gray-600 hover:text-indigo-600 transition-colors duration-300"
+                                        >
+                                            {React.cloneElement(icon, { className: "h-6 w-6" })}
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 )}

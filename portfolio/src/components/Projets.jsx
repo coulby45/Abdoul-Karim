@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Github, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const PortfolioCarousel = () => {
@@ -8,19 +8,28 @@ const PortfolioCarousel = () => {
       id: 1,
       title: "Projet 1",
       description: "Description du projet 1",
-      tools: "React, Node.js, Express"
+      tools: "React, Node.js, Express",
+      githubLink: "#",
+      demoLink: "#",
+      image: "/api/placeholder/800/400"
     },
     {
       id: 2,
       title: "Projet 2",
       description: "Description du projet 2",
-      tools: "Python, Pandas, Scikit-learn"
+      tools: "Python, Pandas, Scikit-learn",
+      githubLink: "#",
+      demoLink: "#",
+      image: "/api/placeholder/800/400"
     },
     {
       id: 3,
       title: "Projet 3",
       description: "Description du projet 3",
-      tools: "HTML, CSS, JavaScript"
+      tools: "HTML, CSS, JavaScript",
+      githubLink: "#",
+      demoLink: "#",
+      image: "/api/placeholder/800/400"
     }
   ];
 
@@ -73,7 +82,7 @@ const PortfolioCarousel = () => {
 
   return (
     <div 
-      className={`relative w-full mt-7 mb-7 max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-xl 
+      className={`relative w-full mt-7 md-7 max-w-6xl mx-auto overflow-hidden rounded-2xl shadow-xl 
                   ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} 
                   transition-all duration-1000`}
       onMouseEnter={() => setIsAutoPlaying(false)}
@@ -90,7 +99,7 @@ const PortfolioCarousel = () => {
       </div>
 
       {/* Carousel principal */}
-      <div className="relative h-64 md:h-80 bg-gray-50/90">
+      <div className="relative h-[32rem] bg-gray-50/90">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
@@ -105,17 +114,46 @@ const PortfolioCarousel = () => {
             }}
             className="absolute w-full h-full"
           >
-            <div className="flex flex-col justify-center items-center h-full p-8 text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                {items[currentIndex].title}
-              </h2>
-              <p className="text-lg text-gray-600 mb-6 max-w-2xl">
-                {items[currentIndex].description}
-              </p>
-              <div className="space-y-4">
-                <p className="text-sm text-gray-600 italic">
-                  <span className="font-semibold">Technologies utilisées:</span> {items[currentIndex].tools}
+            <div className="grid grid-cols-1 md:grid-cols-2 h-full">
+              {/* Image du projet */}
+              <div className="relative overflow-hidden">
+                <img
+                  src={items[currentIndex].image}
+                  alt={items[currentIndex].title}
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+
+              {/* Contenu du projet */}
+              <div className="relative flex flex-col justify-center p-8 bg-white/90">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  {items[currentIndex].title}
+                </h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  {items[currentIndex].description}
                 </p>
+                <div className="space-y-4">
+                  <p className="text-sm text-gray-600 italic">
+                    <span className="font-semibold">Technologies utilisées:</span> {items[currentIndex].tools}
+                  </p>
+                  <div className="flex gap-4">
+                    <a
+                      href={items[currentIndex].githubLink}
+                      className="flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
+                    >
+                      <Github className="w-5 h-5" />
+                      Code source
+                    </a>
+                    <a
+                      href={items[currentIndex].demoLink}
+                      className="flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                      Démo en ligne
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

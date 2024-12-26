@@ -21,11 +21,9 @@ import vscodeLogo from '../assets/skills/vscode.jpg';
 import jupyterLogo from '../assets/skills/jupyter.png';
 
 
-
-
-
 const SkillsCards = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [activeCategory, setActiveCategory] = useState("Développement Web");
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -42,6 +40,7 @@ const SkillsCards = () => {
     const skillCategories = [
         {
             category: "Développement Web",
+            icon: "🌐",
             sections: [
                 {
                     title: "Frontend",
@@ -56,20 +55,19 @@ const SkillsCards = () => {
                         { name: "Node.js", image: nodeLogo },
                         { name: "SQL", image: sqlLogo },
                         { name: "PHP", image: phpLogo },
-                       
                     ]
                 },
                 {
                     title: "Base de données",
                     skills: [
                         { name: "MySQL", image: "/api/placeholder/64/64" },
-                        
                     ]
                 }
             ]
         },
         {
             category: "Analyse de Données",
+            icon: "📊",
             sections: [
                 {
                     title: "Langages & Frameworks",
@@ -92,15 +90,16 @@ const SkillsCards = () => {
                 {
                     title: "Machine Learning",
                     skills: [
-                        { name: "Scikit-learn", image: scikitlearnLogo},
+                        { name: "Scikit-learn", image: scikitlearnLogo },
                         { name: "TensorFlow", image: tensorflowLogo },
-                        { name: "Keras", image: kerasLogo}
+                        { name: "Keras", image: kerasLogo }
                     ]
                 }
             ]
         },
         {
             category: "Outils & DevOps",
+            icon: "🛠",
             sections: [
                 {
                     title: "Contrôle de Version",
@@ -113,7 +112,7 @@ const SkillsCards = () => {
                     title: "Productivité",
                     skills: [
                         { name: "VS Code", image: vscodeLogo },
-                        { name: "Jupyter", image:jupyterLogo}
+                        { name: "Jupyter", image: jupyterLogo }
                     ]
                 }
             ]
@@ -121,68 +120,78 @@ const SkillsCards = () => {
     ];
 
     return (
-        <section id="skills-section" className="py-24 bg-gray-50">
+        <section id="skills-section" className="py-24 bg-gradient-to-b from-gray-50 to-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Title */}
-                <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Compétences Techniques</h2>
-                    <div className="w-24 h-1 bg-indigo-600 mx-auto rounded-full" />
+                {/* Titre de la section avec animation */}
+                <div className={`text-center mb-16 transform transition-all duration-1000 ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}>
+                    <h2 className="text-5xl font-bold text-gray-900 mb-4">
+                        Compétences Techniques
+                    </h2>
+                    <div className="w-32 h-2 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
                 </div>
 
-                {/* Main Categories */}
-                <div className="space-y-20">
-                    {skillCategories.map((mainCategory, mainIndex) => (
-                        <div key={mainCategory.category} className="space-y-12">
-                            {/* Main Category Title */}
-                            <h3 className="text-3xl font-bold text-gray-800 text-center p-4 bg-white rounded-xl shadow-md inline-block mx-auto">
-                                {mainCategory.category}
-                            </h3>
+                {/* Navigation des catégories */}
+                <div className="flex justify-center mb-12 space-x-4">
+                    {skillCategories.map((cat) => (
+                        <button
+                            key={cat.category}
+                            onClick={() => setActiveCategory(cat.category)}
+                            className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                                activeCategory === cat.category
+                                    ? 'bg-indigo-600 text-white shadow-lg scale-105'
+                                    : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
+                            }`}
+                        >
+                            <span className="mr-2">{cat.icon}</span>
+                            {cat.category}
+                        </button>
+                    ))}
+                </div>
 
-                            {/* Sections Grid */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                                {mainCategory.sections.map((section, sectionIndex) => (
-                                    <div 
+                {/* Contenu des compétences */}
+                <div className="space-y-12">
+                    {skillCategories
+                        .filter((cat) => cat.category === activeCategory)
+                        .map((category) => (
+                            <div key={category.category} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {category.sections.map((section, sectionIndex) => (
+                                    <div
                                         key={section.title}
-                                        className={`transform transition-all duration-500 ${
-                                            isVisible 
-                                                ? 'translate-y-0 opacity-100' 
-                                                : 'translate-y-10 opacity-0'
+                                        className={`bg-white rounded-2xl shadow-xl p-6 transform transition-all duration-500 hover:shadow-2xl ${
+                                            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                         }`}
-                                        style={{ transitionDelay: `${(mainIndex * 300 + sectionIndex * 100)}ms` }}
+                                        style={{ transitionDelay: `${sectionIndex * 150}ms` }}
                                     >
-                                        {/* Section Title */}
-                                        <h4 className="text-xl font-semibold text-gray-700 mb-6 text-center">
+                                        <h4 className="text-xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-indigo-100">
                                             {section.title}
                                         </h4>
-
-                                        {/* Skills Grid */}
                                         <div className="grid grid-cols-2 gap-4">
-                                            {section.skills.map((skill, skillIndex) => (
+                                            {section.skills.map((skill) => (
                                                 <div
                                                     key={skill.name}
-                                                    className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                                                    className="group p-4 rounded-xl bg-gray-50 hover:bg-indigo-50 transition-all duration-300"
                                                 >
-                                                    <div className="aspect-square relative mb-3 group">
-                                                        <div className="absolute inset-0 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors duration-300" />
-                                                        <div className="absolute inset-0 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                                    <div className="flex flex-col items-center space-y-3">
+                                                        <div className="w-16 h-16 flex items-center justify-center rounded-lg bg-white shadow-md group-hover:shadow-lg transition-all duration-300">
                                                             <img
                                                                 src={skill.image}
                                                                 alt={skill.name}
-                                                                className="w-12 h-12 object-contain"
+                                                                className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
                                                             />
                                                         </div>
+                                                        <span className="text-sm font-medium text-gray-700 group-hover:text-indigo-600">
+                                                            {skill.name}
+                                                        </span>
                                                     </div>
-                                                    <h5 className="text-center text-sm font-medium text-gray-800">
-                                                        {skill.name}
-                                                    </h5>
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
                                 ))}
                             </div>
-                        </div>
-                    ))}
+                        ))}
                 </div>
             </div>
         </section>
