@@ -33,7 +33,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id='contact' className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Cercles décoratifs animés en arrière-plan */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(5)].map((_, i) => (

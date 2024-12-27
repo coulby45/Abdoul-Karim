@@ -1,7 +1,7 @@
 import React from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import CESILOGO from '../assets/schools/cesi.png';
-import INHBLOGO from '../assets/schools/inphb.png';
+import INHBLOGO from '../assets/schools/inphb.jpeg';
 import LTAILOGO from '../assets/schools/lta.png';
 
 const EducationCard = ({ years, degree, school, location, description, imageUrl }) => (
