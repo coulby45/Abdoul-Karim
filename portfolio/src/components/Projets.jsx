@@ -1,36 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Github, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ia from '../assets/projets/ia.png';
+import info from '../assets/projets/info.png';
+import data from '../assets/projets/data.png';
+import velo from '../assets/projets/velo.png';
+
 
 const PortfolioCarousel = () => {
   const items = [
     {
       id: 1,
-      title: "Projet 1",
-      description: "Description du projet 1",
-      tools: "React, Node.js, Express",
-      githubLink: "#",
+      title: "Projet scolaire IA forhumanforyou",
+      description: "Le projet IA for HumanForYou visait à analyser les facteurs influençant le taux élevé de rotation des employés (15 %) au sein de l'entreprise pharmaceutique indienne HumanForYou. En utilisant des données variées (RH, évaluations, enquêtes, horaires), l'objectif était de développer des modèles prédictifs pour identifier des pistes d'amélioration afin de motiver les employés à rester et ainsi réduire les impacts négatifs liés au turnover.",
+      tools: "Python, Scikit-learn, pandas, matplotlib",
       demoLink: "#",
-      image: "/api/placeholder/800/400"
+      image: ia
     },
     {
       id: 2,
-      title: "Projet 2",
-      description: "Description du projet 2",
-      tools: "Python, Pandas, Scikit-learn",
-      githubLink: "#",
-      demoLink: "#",
-      image: "/api/placeholder/800/400"
+      title: "Défi de la nuit de l'info 2024",
+      description: "Réalisaion d'une application web éducative et interactive qui explore les parallèles fascinants entre le corps humain et l'Océan, mettant en lumière leurs similarités dans le fonctionnement et les dysfonctionnements. Grâce à une interface intuitive et un contenu multimédia engageant, l'application sensibilise à l'importance cruciale de préserver l'Océan, garant de la vie sur Terre.",
+      tools: "React, Tailwind CSS, Framer Motion , node.js",
+      demoLink: "https://zitzitoune.zaidou-dataworks.com",
+      image: info
     },
     {
       id: 3,
-      title: "Projet 3",
-      description: "Description du projet 3",
-      tools: "HTML, CSS, JavaScript",
-      githubLink: "#",
-      demoLink: "#",
-      image: "/api/placeholder/800/400"
-    }
+      title: "Chef de la section webmaster datacorporation",
+      description: "J'ai contribué au développement et à la gestion de sites web pour plusieurs associations étudiantes au sein de Data Corporation, tout en mettant en place des bases de données MySQL pour le suivi des activités associatives. J'ai également coordonné une équipe afin d'assurer la qualité des livrables et le respect des échéances.",
+      tools: "HTML, CSS, JavaScript , PHP, MySQL",
+      demoLink: "https://labelprestige.github.io",
+      image: data
+    },
+    {
+      id: 4,
+      title: "Analyse de données de vélos en libre-service",
+      description: "Dans le cadre d’un projet scolaire, j’ai analysé les données d’un service de vélos en libre-service en utilisant Python pour l’extraction et le nettoyage, ainsi que Power BI pour la création de tableaux de bord interactifs. J’ai visualisé les tendances d’utilisation avec matplotlib et seaborn, tout en suivant les KPIs clés tels que le taux d’utilisation et la rotation des vélos.",
+      tools: "Python, Power BI, matplotlib, seaborn",
+      image: velo}
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -95,7 +103,7 @@ const PortfolioCarousel = () => {
         </div>
 
         {/* Carousel principal */}
-      <div className="relative h-[32rem] bg-blue-500">
+      <div className="relative h-[32rem] ">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
@@ -118,7 +126,7 @@ const PortfolioCarousel = () => {
                   alt={items[currentIndex].title}
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t " />
+                <div className="absolute inset-0  " />
               </div>
 
               {/* Contenu du projet */}
@@ -134,20 +142,18 @@ const PortfolioCarousel = () => {
                     <span className="font-semibold">Technologies utilisées:</span> {items[currentIndex].tools}
                   </p>
                   <div className="flex gap-4">
-                    <a
-                      href={items[currentIndex].githubLink}
-                      className="flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
-                    >
-                      <Github className="w-5 h-5" />
-                      Code source
-                    </a>
-                    <a
-                      href={items[currentIndex].demoLink}
-                      className="flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                      Démo en ligne
-                    </a>
+                  {items[currentIndex].demoLink && items[currentIndex].demoLink !== "#" && (
+  <a
+    href={items[currentIndex].demoLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
+  >
+    <ExternalLink className="w-5 h-5" />
+    Démo en ligne
+  </a>
+)}
+
                   </div>
                 </div>
               </div>
