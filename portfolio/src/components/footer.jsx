@@ -6,7 +6,7 @@ const Footer = () => {
     {
       name: 'Email',
       icon: <Mail className="w-6 h-6" />,
-      href: 'mailto:votre@email.com',
+      href: 'mailto:abdoulkarimcoulibaly525@gmail.com',
     },
     {
       name: 'GitHub',
@@ -16,18 +16,8 @@ const Footer = () => {
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-6 h-6" />,
-      href: 'https://linkedin.com/in/votrecompte',
-    },
-    {
-      name: 'Twitter',
-      icon: <Twitter className="w-6 h-6" />,
-      href: 'https://twitter.com/votrecompte',
-    },
-    {
-      name: 'Instagram',
-      icon: <Instagram className="w-6 h-6" />,
-      href: 'https://instagram.com/votrecompte',
-    },
+      href: 'www.linkedin.com/in/abdoul-karim-coulibaly-3ba1a1328',
+    }
   ];
 
   const currentYear = new Date().getFullYear();

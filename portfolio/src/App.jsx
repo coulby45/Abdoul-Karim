@@ -5,7 +5,7 @@ import AboutSection from './components/About';
 import SkillsCards from './components/Skills';
 import PortfolioCarousel from './components/Projets';
 import Formation from './components/formation';
-import CVSection from './components/CVsection';
+import WhyChooseMe from './components/whyme';
 /*import PassionsSection from './components/passions';*/
 import Footer from './components/footer';
 import ContactSection from './components/Contact';
@@ -18,9 +18,10 @@ function App() {
       <SkillsCards />
       <PortfolioCarousel />
       <Formation />
-      <CVSection />
       {/*<PassionsSection />*/}
+      <WhyChooseMe />
       <ContactSection />
+      
       <Footer />
     </div>
   );

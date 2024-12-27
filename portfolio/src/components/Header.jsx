@@ -13,6 +13,11 @@ const Header = () => {
     // Animation pour le texte qui apparaît caractère par caractère
     const text = "Développeur Full Stack";
     const [displayText, setDisplayText] = useState('');
+    const links = {
+        github: "https://github.com/votre-profil-github",
+        linkedin: "www.linkedin.com/in/abdoul-karim-coulibaly-3ba1a1328",
+        mail: "mailto:abdoulkarimcoulibaly525@gmail.com"
+    }
     
     useEffect(() => {
         let index = -1;
@@ -85,20 +90,37 @@ const Header = () => {
                         ))}
                     </div>
 
-                    <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-                        {[<Github />, <Linkedin />, <Mail />].map((icon, index) => (
-                            <a 
-                                key={index}
-                                href="#"
-                                className={`text-gray-600 hover:text-indigo-600 transition-all duration-300
-                                          hover:scale-110 transform hover:rotate-12
-                                          ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
-                                style={{ transitionDelay: `${(index + 4) * 100}ms` }}
-                            >
-                                {React.cloneElement(icon, { className: "h-5 w-5" })}
-                            </a>
-                        ))}
-                    </div>
+                    {/* Desktop Icons */}
+            <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+                <a
+                    href={links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-gray-600 hover:text-indigo-600 transition-all duration-300
+                                hover:scale-110 transform hover:rotate-12
+                                ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
+                >
+                    <Github className="h-5 w-5" />
+                </a>
+                <a
+                    href={links.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-gray-600 hover:text-indigo-600 transition-all duration-300
+                                hover:scale-110 transform hover:rotate-12
+                                ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
+                >
+                    <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                    href={links.mail}
+                    className={`text-gray-600 hover:text-indigo-600 transition-all duration-300
+                                hover:scale-110 transform hover:rotate-12
+                                ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
+                >
+                    <Mail className="h-5 w-5" />
+                </a>
+            </div>
                 </nav>
 
                 {/* Menu mobile existant... */}
@@ -131,17 +153,31 @@ const Header = () => {
                                         {item}
                                     </a>
                                 ))}
-                                <div className="flex gap-6 pt-4">
-                                    {[<Github />, <Linkedin />, <Mail />].map((icon, index) => (
-                                        <a 
-                                            key={index}
-                                            href="#"
-                                            className="text-gray-600 hover:text-indigo-600 transition-colors duration-300"
-                                        >
-                                            {React.cloneElement(icon, { className: "h-6 w-6" })}
-                                        </a>
-                                    ))}
-                                </div>
+                                {/* Mobile Icons */}
+            <div className="flex lg:hidden gap-6 pt-4">
+                <a
+                    href={links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-indigo-600 transition-colors duration-300"
+                >
+                    <Github className="h-6 w-6" />
+                </a>
+                <a
+                    href={links.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-indigo-600 transition-colors duration-300"
+                >
+                    <Linkedin className="h-6 w-6" />
+                </a>
+                <a
+                    href={links.mail}
+                    className="text-gray-600 hover:text-indigo-600 transition-colors duration-300"
+                >
+                    <Mail className="h-6 w-6" />
+                </a>
+            </div>
                             </div>
                         </div>
                     </div>
@@ -177,7 +213,7 @@ const Header = () => {
                                     href="#projets"
                                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:scale-105 transition-all duration-300"
                                 >
-                                    Voir mes projets
+                                    Voir mon CV
                                 </a>
                                 <a 
                                     href="#contact" 
