@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 import image from '../assets/IMG_1015.jpg'
+import { Link } from 'react-router-dom';
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
@@ -76,19 +77,32 @@ const Header = () => {
                     </div>
 
                     <div className="hidden lg:flex lg:gap-x-12">
-                        {['Projets', 'Formation', 'Compétences', 'Contact','CV'].map((item, index) => (
-                            <a 
-                                key={item} 
-                                href={`#${item.toLowerCase()}`}
-                                className={`text-sm font-semibold text-gray-900 hover:text-indigo-600 
-                                          transition-all duration-300 hover:scale-110
-                                          ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
-                                style={{ transitionDelay: `${index * 100}ms` }}
-                            >
-                                {item}
-                            </a>
-                        ))}
-                    </div>
+    {['Projets', 'Formation', 'Compétences', 'Contact', 'CV'].map((item, index) => (
+        item === 'CV' ? (
+            <Link 
+                key={item} 
+                to="/cv" // Lien vers la page ou la section CV avec React Router
+                className={`text-sm font-semibold text-gray-900 hover:text-indigo-600 
+                          transition-all duration-300 hover:scale-110
+                          ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+            >
+                {item}
+            </Link>
+        ) : (
+            <a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} // Ancres classiques pour les autres éléments
+                className={`text-sm font-semibold text-gray-900 hover:text-indigo-600 
+                          transition-all duration-300 hover:scale-110
+                          ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+            >
+                {item}
+            </a>
+        )
+    ))}
+</div>
 
                     {/* Desktop Icons */}
             <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
@@ -142,17 +156,31 @@ const Header = () => {
                                 </button>
                             </div>
                             <div className="flex flex-col space-y-8">
-                                {['Projets', 'Formation', 'Compétences', 'Contact','CV'].map((item, index) => (
-                                    <a 
-                                        key={item}
-                                        href={`#${item.toLowerCase()}`}
-                                        onClick={handleMobileMenuClick}
-                                        className="text-lg font-semibold text-gray-900 hover:text-indigo-600 
-                                                transition-all duration-300 transform hover:translate-x-2"
-                                    >
-                                        {item}
-                                    </a>
-                                ))}
+                            {['Projets', 'Formation', 'Compétences', 'Contact', 'CV'].map((item, index) => (
+        item === 'CV' ? (
+            <Link 
+                key={item} 
+                to="/cv" // Lien vers la page ou la section CV avec React Router
+                className={`text-sm font-semibold text-gray-900 hover:text-indigo-600 
+                          transition-all duration-300 hover:scale-110
+                          ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+            >
+                {item}
+            </Link>
+        ) : (
+            <a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} // Ancres classiques pour les autres éléments
+                className={`text-sm font-semibold text-gray-900 hover:text-indigo-600 
+                          transition-all duration-300 hover:scale-110
+                          ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+            >
+                {item}
+            </a>
+        )
+    ))}
                                 {/* Mobile Icons */}
             <div className="flex lg:hidden gap-6 pt-4">
                 <a
@@ -209,12 +237,11 @@ const Header = () => {
                             J’explore et conçois des solutions innovantes en combinant mes compétences techniques en React, node js et Python, tout en renforçant ma maîtrise des outils modernes de développement.
                             </p>
                             <div className={`mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-1000 delay-700`}>
-                                <a
-                                    href="#projets"
-                                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:scale-105 transition-all duration-300"
-                                >
-                                    Voir mon CV
-                                </a>
+                                <Link
+                                to={'/cv'}
+                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:scale-105 transition-all duration-300">
+                                Voir mon CV
+                                </Link>
                                 <a 
                                     href="#contact" 
                                     className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition-colors duration-300 flex items-center justify-center lg:justify-start"

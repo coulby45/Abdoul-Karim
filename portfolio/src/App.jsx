@@ -1,30 +1,24 @@
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import de React Router
+import Home from './pages/home'; // Importation de la page d'accueil
+import CV from './pages/cv'; // Importation de la page CV
+import Header from './components/Header'; // Importation du Header
+import Footer from './components/footer'; // Importation du Footer
 
-import './App.css';
-import Header from './components/Header';
-import AboutSection from './components/About';
-import SkillsCards from './components/Skills';
-import PortfolioCarousel from './components/Projets';
-import Formation from './components/formation';
-import WhyChooseMe from './components/whyme';
-/*import PassionsSection from './components/passions';*/
-import Footer from './components/footer';
-import ContactSection from './components/Contact';
-
-function App() {
+const App = () => {
   return (
-    <div>
-      <Header />
-      <AboutSection />
-      <SkillsCards />
-      <PortfolioCarousel />
-      <Formation />
-      {/*<PassionsSection />*/}
-      <WhyChooseMe />
-      <ContactSection />
+    <Router> {/* Enveloppe l'application pour activer le routing */}
+       
       
-      <Footer />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} /> {/* Route pour la page d'accueil */}
+        <Route path="/cv" element={<CV />} /> {/* Route pour la page CV */}
+      </Routes>
+      
+ {/* Le Footer est affiché sur toutes les pages */}
+    </Router>
   );
-}
+};
 
 export default App;

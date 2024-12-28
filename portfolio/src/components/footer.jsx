@@ -1,7 +1,12 @@
 import React from 'react';
-import { Mail, Github, Linkedin, Twitter, Instagram, ExternalLink } from 'lucide-react';
+import { Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentYear = new Date().getFullYear();
+
   const socialLinks = [
     {
       name: 'Email',
@@ -20,11 +25,26 @@ const Footer = () => {
     }
   ];
 
-  const currentYear = new Date().getFullYear();
+  const navigationLinks = [
+    { name: 'Accueil', id: 'top' },
+    { name: 'Projets', id: 'projets' },
+    { name: 'Compétences', id: 'competences' },
+    { name: 'Contact', id: 'contact' }
+  ];
+
+  const scrollToSection = (sectionId) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <footer className="bg-gray-900 text-gray-300">
-      {/* Section principale */}
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="flex flex-col items-center">
           {/* Nom ou Logo */}
@@ -49,43 +69,33 @@ const Footer = () => {
           {/* Section de contact rapide */}
           <div className="text-center mb-8">
             <p className="mb-2">Disponible pour de nouvelles opportunités</p>
-            <a 
-              href="mailto:votre@email.com"
+            <button 
+              onClick={() => scrollToSection('contact')}
               className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors duration-300"
             >
               Contactez-moi <ExternalLink className="w-4 h-4" />
-            </a>
+            </button>
           </div>
           
           {/* Navigation du footer */}
           <nav className="mb-8">
             <ul className="flex flex-wrap justify-center gap-6 text-sm">
-              <li>
-                <a href="#accueil" className="hover:text-white transition-colors duration-300">
-                  Accueil
-                </a>
-              </li>
-              <li>
-                <a href="#projets" className="hover:text-white transition-colors duration-300">
-                  Projets
-                </a>
-              </li>
-              <li>
-                <a href="#competences" className="hover:text-white transition-colors duration-300">
-                  Compétences
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white transition-colors duration-300">
-                  Contact
-                </a>
-              </li>
+              {navigationLinks.map((link) => (
+                <li key={link.name}>
+                  <button
+                    onClick={() => scrollToSection(link.id)}
+                    className="hover:text-white transition-colors duration-300"
+                  >
+                    {link.name}
+                  </button>
+                </li>
+              ))}
             </ul>
           </nav>
           
           {/* Copyright */}
           <div className="text-sm text-gray-500">
-            <p>© {currentYear} Votre Nom. Tous droits réservés.</p>
+            <p>© {currentYear} Coulibaly Abdoul Karim. Tous droits réservés.</p>
           </div>
         </div>
       </div>
