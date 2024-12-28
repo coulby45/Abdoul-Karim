@@ -60,7 +60,7 @@ const Education = () => {
       school: "CESI de saint-nazaire",
       location: "Saint-Nazaire, France",
       description: "Spécialisation en data science et intelligence artificielle",
-      imageUrl: CESILOGO // Remplacer par l'URL de l'image réelle
+      imageUrl: CESILOGO 
     },
     {
       id: 2,
@@ -69,16 +69,16 @@ const Education = () => {
       school: "Institut national Houphouët-Boigny",
       location: "Yamoussoukro, Côte d'Ivoire",
       description: "Formation approfondie en mathematiques appliquées,informatique et sciences de l'ingénieur",
-      imageUrl: INHBLOGO // Remplacer par l'URL de l'image réelle
+      imageUrl: INHBLOGO 
     },
     {
       id: 3,
-      years: "2017 - 2019",
+      years: "2019 - 2022",
       degree: "Baccalauréat série E (Mathématiques et Techniques de l'Ingénieur)",
       school: "Lycée Technique de d'Abidjan",
       location: "Bordeaux, France",
       description: "Spécialisation en mathématiques et techniques de l'ingénieur",
-      imageUrl: LTAILOGO // Remplacer par l'URL de l'image réelle
+      imageUrl: LTAILOGO 
     }
   ];
 

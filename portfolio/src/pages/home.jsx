@@ -27,7 +27,10 @@ const Home = () => {
   return (
     <div id="top">
       <Header />
-      <AboutSection />
+      <div id='A propos'>
+        <AboutSection />
+      </div>
+      
       <div id="competences">
         <SkillsCards />
       </div>

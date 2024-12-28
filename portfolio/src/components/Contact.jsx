@@ -27,9 +27,9 @@ const ContactSection = () => {
   ];
 
   const socialLinks = [
-    { icon: <Github className="w-6 h-6" />, label: "GitHub", color: "from-gray-600 to-gray-900" },
-    { icon: <Linkedin className="w-6 h-6" />, label: "LinkedIn", color: "from-blue-400 to-blue-600" },
-    { icon: <Mail className="w-6 h-6" />, label: "Email", color: "from-red-400 to-red-600" }
+    { icon: <Github className="w-6 h-6" />, label: "GitHub", color: "from-gray-600 to-gray-900", link:"https://github.com/coulby45" },
+    { icon: <Linkedin className="w-6 h-6" />, label: "LinkedIn", color: "from-blue-400 to-blue-600", link:"https://www.linkedin.com/in/abdoul-karim-coulibaly-3ba1a1328" },
+    { icon: <Mail className="w-6 h-6" />, label: "Email", color: "from-red-400 to-red-600", link:"mailto:abdoulkarimcoulibaly525@gmail.com"}
   ];
 
   return (
@@ -92,7 +92,8 @@ const ContactSection = () => {
             {socialLinks.map((social, index) => (
               <a
                 key={index}
-                href="#"
+                href={social.link}
+                target='_blank'
                 className="group relative"
                 aria-label={social.label}
               >

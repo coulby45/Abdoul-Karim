@@ -64,7 +64,7 @@ const CV = () => {
       <button
         onClick={handleDownload}
         disabled={downloading}
-        className="top-8 right-8 mt-10 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-lg 
+        className="top-8 right-8 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-lg 
                  hover:bg-indigo-700 transition-all duration-300 flex items-center gap-2
                  hover:scale-105 active:scale-95 disabled:opacity-50"
       >
@@ -72,7 +72,7 @@ const CV = () => {
         <span>{downloading ? 'Téléchargement...' : 'Télécharger PDF'}</span>
       </button>
 
-      <div className="max-w-4xl mt-5 mx-auto bg-white shadow-xl rounded-xl overflow-hidden transform  transition-all duration-300">
+      <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden transform  transition-all duration-300">
         {/* Le reste du code du CV reste identique */}
         {/* Header Section */}
         <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-6 py-12">
@@ -220,8 +220,9 @@ const CV = () => {
           </div>
         </div>
     </div>
-    <Footer />
+    
     </div>
+    <Footer />
     </>
   );
 };
